@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Script for jQuery -- Must come before all bootstrap  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <!-- Link for bootstrap CSS  -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    
+    <style>
+        /* * {
+            border: 2px dotted black;
+        } */
+    </style>
+
+<!-- Replace Title Here -->
+    <title> Quotes  </title>   
+
+</head>
+<!-- ********************************************   End Head   **************************************** -->
+
+
+<!-- *****************************************  beign - HEADER ************************************************** -->
+<header class="row">
+    <div class="col">
+
+        <H1 class="text-center text-light">Welcome to Quotes</H1>
+
+    </div>    
+</header>
+<!-- *****************************************  end - HEADER ************************************************** -->
+
+
+
+<!-- ********************************************   Begin Body   **************************************** -->
+
+<body class="container-fluid bg-dark">
+    
+
+<!-- *****************************************  beign - Main ************************************************** -->
+    <div class="row">
+        <div class="col ml-auto mr-auto">
+                                            <!--  REGISTRATION FORM -->
+            <form action="/register" method="POST" class="bg-info text-light p-4 border border-light rounded">
+                <H1>Register</H1>
+                <p>First Name: <br>
+                    <input type="text" name="user_first_name"></p>
+                <p>Last Name: <br>
+                    <input type="text" name="user_last_name"></p>
+                <p>Email: <br>
+                    <input type="text" name="user_email"></p>
+                <p>Password: <br>
+                    <input type="password" name="user_password1"></p>
+                <p>Confirm Password: <br>
+                    <input type="password" name="user_password2"></p>
+                <input type="submit" value="Register!">
+            </form>       
+        </div>
+
+
+        <div class="col ml-auto mr-auto">
+                                            <!--  LOGIN  FORM -->
+            <form action="/validation" method="POST" class="bg-info text-light p-4 border border-light rounded h-100">
+                <H1>Login</H1>
+                <p>Email: <br>
+                    <input type="text" name="check_email"></p>
+                <p>Password: <br>
+                    <input type="password" name="check_pw"></p>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        </div>
+    </div>    
+<!-- *****************************************  end - Main ************************************************** -->
+
+
+
+
+<!-- *****************************************  beign - Footer  ************************************************** -->
+    <footer class="card text-center mt-4 rounded">
+        <div class="card-header bg-light"></div>
+
+        <div class="card-footer bg-light"></div>
+
+    </footer>
+
+<!-- *****************************************  end - Footer  ************************************************** -->
+
+
+
+
+
+
+
+    <!-- Bootstrap javascript script link  -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+</body>
+<!-- *****************************************  end - Body  ************************************************** -->
+
+
+
+
+
+<!--  ******************************************************** Flash Messages -- Inside PopUp Alert... ************************************ -->
+{% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}           <!-- loop through the messages -->
+            <div><script>alert('{{message}}')</script></div>                  
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<!--  ********************************************************** End Flash Messages *********************************************************-->
+
+
+
+<!-- *****************************************  end - HTML   ************************************************** -->
+
+</html>
